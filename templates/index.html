@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Use template</title>
+    <link rel="stylesheet" type="text/css" href="{{static_url('css/div-center.css')}}">
+</head>
+
+<body>
+    <div class="form-wrapper">
+        <div class="form-box">
+            <h1>Enter terms below.</h1>
+            <form method="post" action="/poem">
+                <p>Plural noun
+                    <input type="text" name="noun1">
+                </p>
+                <p>Singular noun
+                    <input type="text" name="noun2">
+                </p>
+                <p>Verb (past tense)
+                    <input type="text" name="verb">
+                </p>
+                <p>Noun
+                    <input type="text" name="noun3">
+                </p>
+                <input type="submit">
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>

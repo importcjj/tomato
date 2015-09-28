@@ -1,0 +1,12 @@
+.form-wrapper {
+    position: absolute;
+    height: 400px;
+    top: 50%;
+    left: 50%;
+}
+
+.form-box {
+    position: relative;
+    top: -50%;
+    left: -50%;
+}
