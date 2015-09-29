@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>login</title>
+</head>
+<form action="/login" method="POST">
+    {% raw xsrf_form_html()%}
+    <input name="username">
+</form>
+
+<body>
+</body>
+
+</html>
