@@ -5,7 +5,6 @@ $("#connect").click(function() {
   websocket = new WebSocket(host);
   websocket.onopen = function(evt) {};
   websocket.onmessage = function(evt) {
-    alert(evt.data);
     var newline = '\r\n' + "[" + new Date().toLocaleTimeString() + "]" +
       evt.data;
     console.log($("#chatbox").val());
@@ -23,4 +22,11 @@ $("#close").click(function() {
   websocket.close();
   $("#connect").disabled = false;
   $("#close").disabled = true;
+});
+
+$("#send").click(function() {
+  msg = $("#to-send").val();
+  if (msg) {
+    websocket.send(msg);
+  }
 });
