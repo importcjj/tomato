@@ -1,3 +1,38 @@
+var host = "ws://localhost:8000/chatserver";
+var websocket;
+$("#close").disabled = true;
+$("#connect").click(function() {
+  websocket = new WebSocket(host);
+  websocket.onopen = function(evt) {};
+  websocket.onmessage = function(evt) {
+    var newline = '\r\n' + "[" + new Date().toLocaleTimeString() + "]" +
+      evt.data;
+    $("#chat-box").val($("#chat-box").val() + newline);
+    var idName = idNameGen(20);
+    var text = '<div id="' + idName + '" class="test-barrage"><a>' + evt.data + '</a></div>';
+    $("#comment-box").append(text)
+
+
+  };
+  websocket.onerror = function() {};
+  $("#connect").disabled = true;
+  $("#close").disabled = false;
+
+  return websocket;
+});
+$("#close").click(function() {
+  websocket.close();
+  $("#connect").disabled = false;
+  $("#close").disabled = true;
+});
+
+$("#send").click(function() {
+  msg = $("#comment").val();
+  if (msg) {
+    websocket.send(msg);
+  }
+});
+
 var idNameGen = function(charsLength, chars) {
   var length = charsLength;
   if (!chars)
@@ -9,13 +44,3 @@ var idNameGen = function(charsLength, chars) {
   }
   return 'h' + randomChars;
 };
-
-$("#send").click(function() {
-  var msg = $("#comment").val();
-  console.log(msg);
-  if (msg) {
-    var idName = idNameGen(20);
-    var text = '<div id="' + idName + '" class="test-barrage"><a>' + msg + '</a></div>';
-    $("#comment-box").append(text)
-  }
-});

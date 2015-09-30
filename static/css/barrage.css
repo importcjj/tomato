@@ -56,7 +56,7 @@ div.barrage-box {
     float: left;
 }
 
-textarea.chat-box {
+textarea#chat-box {
     height: 569px;
     width: 100%;
     resize: none;
@@ -81,6 +81,7 @@ div#send {
 div.test-barrage {
     text-shadow: 1px 1px 1px #000000;
     position: relative;
+    display: inline-block;
     left: 700px;
     top: 0px;
     color: #FFFFFF;
@@ -97,6 +98,6 @@ div.test-barrage {
         -webkit-transform: translate3d(0px, 0, 0);
     }
     to {
-        -webkit-transform: translate3d(-800px, 0, 0);
+        -webkit-transform: translate3d(-1200px, 0, 0);
     }
 }

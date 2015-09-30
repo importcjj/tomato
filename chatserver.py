@@ -136,6 +136,7 @@ class Application(tornado.web.Application):
     def __init__(self):
         handlers = [
             (r'/chatroom', ChatRoomHandler),
+            (r'/barrage', BarrageHandler),
             (r'/chatserver', ChatServerHandler)
         ]
         settings = {
@@ -150,6 +151,12 @@ class ChatRoomHandler(tornado.web.RequestHandler):
 
     def get(self):
         self.render('chatroom.html', page_title="let's chat")
+
+
+class BarrageHandler(tornado.web.RequestHandler):
+
+    def get(self):
+        self.render('barrage.html')
 
 
 class ChatServerHandler(tornado.websocket.WebSocketHandler):
